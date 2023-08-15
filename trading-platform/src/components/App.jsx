@@ -1,6 +1,6 @@
 import { Sidebar } from "./Sidebar"
 import { Navbar } from "./Navbar"
-import { ProfileScreen } from "./ProfileScreen"
+import { ProfileScreen } from "./ProfileScreen/ProfileScreen"
 
 export default function App() {
 

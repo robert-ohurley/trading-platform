@@ -7,20 +7,20 @@ export const Sidebar = () => {
         <li className="my-20">
 
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400">
-          <img src="/public/icon5.svg" height={30} width={30} />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
+          <img src="/icon5.svg" height={30} width={30} />   
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400">
-          <img src="/public/icon1.svg" height={30} width={30} />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
+          <img src="/icon1.svg" height={30} width={30} />   
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400">
-          <img src="/public/icon2.svg" height={30} width={30} />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
+          <img src="/icon2.svg" height={30} width={30} />   
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400">
-          <img src="/public/icon3.svg" height={30} width={30} color="white" />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
+          <img src="/icon3.svg" height={30} width={30} color="white" />   
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400">
-          <img src="/public/icon4.svg" height={30} width={30} />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
+          <img src="/icon4.svg" height={30} width={30} />   
         </li>
       </ul>
     </div>
