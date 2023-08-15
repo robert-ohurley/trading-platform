@@ -1,4 +1,4 @@
-import getCrypto from "./hooks/getCrypto"
+// import getCrypto from "./hooks/getCrypto"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
