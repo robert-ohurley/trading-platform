@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Sidebar = () => {
   return (
-    <div className="border bg-slate-200 w-max p-3 h-screen flex justify-around">
+    <div className="border bg-white p-5 h-screen fixed">
       <ul className="">
         <li className="my-20">
 
