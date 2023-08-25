@@ -13,7 +13,7 @@ export const ProfileScreen = () => {
       {/* left  */}
       <div className="h-screen flex ">
 
-        <div className="flex flex-col w-full h-full  bg-slate-200 ">
+        <div className="flex flex-col w-full h-full bg-special-purple">
 
         {/*  top half*/}
           <div className="flex px-10 pt-5">
