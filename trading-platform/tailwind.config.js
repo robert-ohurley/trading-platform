@@ -9,7 +9,11 @@ export default {
       'special-green':'#4fdfb1',
       'special-red':'#ed5b75',
       'special-purple':'#AA86CB',
-      'cryptobrotha-purple': "#AA86C3"
+      'cryptobrotha-purple': "#AA86C3",
+      'rose quartz': "#AEA2B9",
+      'french grey': "#BEBFC5",
+      'platinum': "#CFDDD7",
+      'celadon': "#90E0B5",
       }
     },
     fontFamily: {
