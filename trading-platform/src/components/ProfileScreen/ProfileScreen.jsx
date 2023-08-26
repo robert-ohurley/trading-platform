@@ -5,24 +5,33 @@ import InvestmentStats from './InvestmentStats'
 import TransactionHistory from './TransactionHistory'
 import MyPortfolio from './MyPortfolio'
 
-export const ProfileScreen = () => {
+export const ProfileScreen = ({ showForSale }) => {
   return (
       //entire main screen 
     <div className="flex ml-24 h-screen">
 
-      {/* left  */}
-      <div className="h-screen flex ">
+      {/* for sale - the left side of the screen  */}
+      { showForSale && 
+      <div className="border bg-slate-100 h-screen overflow-y-scroll overflow-x-hidden min-w-fit ">
+        <ForSale/>
+      </div> }
+ 
 
-        <div className="flex flex-col w-full h-full bg-special-purple">
+      {/* put into a 2x2 grid on huge screens and a 1 x 4 grid on anything smaller  */}
+
+      {/* the right side of the screen  */}
+      <div className="h-screen flex bg-slate-200 overflow-y-scroll w-full">
+
+        <div className="flex flex-col h-full ">
 
         {/*  top half*/}
-          <div className="flex px-10 pt-5">
+          <div className="flex md:flex-col md:gap-10 md:mb-10 md:items-left lg:flex-row px-10 pt-5">
             <TopPicks />
             <InvestmentStats />
           </div>
 
           {/* bottom half  */}
-          <div className="flex h-1/2 px-10">
+          <div className="flex md:flex-col md:gap-10 md:items-left lg:flex-row px-10">
             <TransactionHistory />
             <MyPortfolio />
           </div>
@@ -30,10 +39,6 @@ export const ProfileScreen = () => {
         </div>
       </div>
 
-      {/* my cards OR maybe transactions  */}
-      <div className="border w-full bg-slate-100">
-        <ForSale/>
-      </div>
     </div>
   )
 }

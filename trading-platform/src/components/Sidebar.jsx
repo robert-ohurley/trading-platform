@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Sidebar = () => {
   return (
-    <div className="border bg-white p-5 h-screen fixed">
+    <div className="bg-white p-5 h-screen absolute mt-16 ">
       <ul className="">
         <li className="my-20">
 

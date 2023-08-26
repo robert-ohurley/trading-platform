@@ -5,7 +5,7 @@ import MyPortfolioChart from './MyPortfolioChart'
 
 function MyPortfolio() {
   return (
-    <div className="flex flex-col w-4/6">
+    <div className="flex flex-col ">
         <div className="flex items-center justify-between ml-6 mt-3">
             <h1 className="font-semibold text-lg">My Portfolio</h1> 
             <img src="/ellipses.svg" height={30} width={30} className="mr-6"/>

@@ -10,8 +10,8 @@ export default {
       'special-red':'#ed5b75',
       'special-purple':'#AA86CB',
       'cryptobrotha-purple': "#AA86C3",
-      'rose quartz': "#AEA2B9",
-      'french grey': "#BEBFC5",
+      'rose-quartz': "#AEA2B9",
+      'french-grey': "#BEBFC5",
       'platinum': "#CFDDD7",
       'celadon': "#90E0B5",
       }
@@ -55,6 +55,8 @@ export default {
       72: '18rem',
       80: '20rem',
       96: '24rem',
+      '25rem': '25rem',
+      '30rem': '30rem',
       '50rem': '50rem'
     }
   },

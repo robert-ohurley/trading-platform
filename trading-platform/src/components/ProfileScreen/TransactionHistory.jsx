@@ -1,23 +1,21 @@
 import React from 'react'
 import TopPicksAssetCard from './TopPicksAssetCard'
-import AssetsOwndedAssetCard from './AssetsOwnedAssetCard'
+import recentTransactionData from '../../data/recentTransactions'
 
-function TransactionHistory() {
+function RecentTransactions() {
   return (
-    <div className="w-4/12 ">
-        <div className="flex items-center justify-between ml-6 mt-3">
-            <h1 className="font-semibold text-lg">Transaction History</h1> 
+    <div className=" w-fit">
+        <div className="flex justify-between ml-6 mt-3">
+            <h1 className="font-semibold text-lg">Recent Transactions</h1> 
             <img src="/ellipses.svg" height={30} width={30} className="mr-16"/>
         </div>
     
             <div className="flex flex-col h-full">
-              <TopPicksAssetCard />
-              <TopPicksAssetCard />
-              <TopPicksAssetCard />
+              { recentTransactionData.slice(0,4).map(transaction => <TopPicksAssetCard name={transaction.name} price={transaction.dollarValue} image={transaction.image} />)}
             </div>
 
     </div>
   )
 }
 
-export default TransactionHistory
+export default RecentTransactions
