@@ -1,19 +1,18 @@
-import { Sidebar } from "./Sidebar"
+import { ProfileScreen } from "../views/MyProfile/ProfileScreen"
+import ForSalePage from '../views/ForSale/ForSalePage'
+import TransactionHistoryPage from '../views/TransactionHistory/TransactionHistoryPage'
 import { Navbar } from "./Navbar"
-import { ProfileScreen } from "./ProfileScreen/ProfileScreen"
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom'
 
 export default function App() {
-	const [showForSale, setShowForSale ] = useState(true)
-	const [showTransactions, setShowTransactions ] = useState(false)
-
 	return (
-		<div className="flex">
-			<Sidebar />
-			<div className="flex flex-col w-full h-full">
-				<Navbar setShowForSale={setShowForSale} showForSale={showForSale} showTransactions={showTransactions} setShowTransactions={setShowTransactions} />
-				<ProfileScreen showForSale={showForSale} showTransactions={showTransactions}/>				
-			</div>
-		</div>
+		<>
+			<Navbar />
+			<Routes>
+				<Route path='/MyProfile' element={<ProfileScreen />}></Route>
+				<Route path="/ForSale" element={<ForSalePage />} />
+				<Route path="/TransactionHistory" element={<TransactionHistoryPage />} />
+			</Routes>
+		</>
 	)
 }
