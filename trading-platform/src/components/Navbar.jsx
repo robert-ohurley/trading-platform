@@ -44,7 +44,7 @@ export const Navbar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/MyProfile"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -97,6 +97,11 @@ export const Navbar = () => {
                     <Typography textAlign="center">{"Transactions"}</Typography>
                   </MenuItem>
                 </Link>
+                 <Link to="/MyProfile">
+                  <MenuItem key={"MyProfile"}>
+                    <Typography textAlign="center">{"My Profile"}</Typography>
+                  </MenuItem>
+                </Link>           
             </Menu>
           </Box>
           <Typography
@@ -136,7 +141,15 @@ export const Navbar = () => {
                   {"Transactions"}
                 </Button>
               </Link>
-          </Box>
+               <Link to="/MyProfile">
+                <Button
+                  key={"MyProfile"}
+                  onClick={() => setShowTransactions(prevState => !prevState)}
+                  sx={{ my: 2, color: 'white', }}
+                  >
+                  {"My Profile"}
+                </Button>
+              </Link>         </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

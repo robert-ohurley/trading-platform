@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TopPicksAssetCard( { name, price, image }) {
+function FavoriteAssetCard( { name, price, image }) {
   return (
     <div className="border h-20 w-72 flex items-center justify-between my-2 rounded-lg bg-slate-100 shadow-md transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer">
         
@@ -26,4 +26,4 @@ function TopPicksAssetCard( { name, price, image }) {
   )
 }
 
-export default TopPicksAssetCard
+export default FavoriteAssetCard

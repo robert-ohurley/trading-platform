@@ -14,16 +14,16 @@ export const Sidebar = ({ handleViewChange, views }) => {
 
         </li>
         <li onClick={() => handleViewChange("forSale")} className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer flex items-center justify-center">
-          <FaShoppingBag size={"2rem"} color={!views.forSale ? "purple" : "black"} />
+          <FaShoppingBag size={"2rem"} color={!views.forSale ? "gray" : "black"} />
         </li>
         <li onClick={() => handleViewChange("transactionHistory")} className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer flex items-center justify-center">
-          <FaReceipt size={"2rem"} color={!views.transactionHistory ? "purple" : "black"} />
+          <FaReceipt size={"2rem"} color={!views.transactionHistory ? "gray" : "black"} />
         </li>
         <li onClick={() => handleViewChange("charts")} className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer flex items-center justify-center">
-          <ImStatsBars size={"2rem"} color={!views.charts ? "purple" : "black"} />
+          <ImStatsBars size={"2rem"} color={!views.charts ? "gray" : "black"} />
         </li>
         <li onClick={() => handleViewChange("info")} className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer flex items-center justify-center">
-          <BsFillInfoCircleFill size={"2rem"} color={!views.info ? "purple" : "black"} />
+          <BsFillInfoCircleFill size={"2rem"} color={!views.info ? "gray" : "black"} />
         </li>
       </ul>
     </div>

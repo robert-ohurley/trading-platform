@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import ForSaleGrid from './ForSaleGrid'
-import TopPicksAssetCard from './TopPicksAssetCard'
+import TopPicksAssetCard from './FavoriteAssetCard'
 import recentTransactionData from '../../data/recentTransactions'
 function TransactionHistory() {
   const [search, setSearch] = useState("")

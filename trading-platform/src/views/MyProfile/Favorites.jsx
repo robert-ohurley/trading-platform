@@ -1,11 +1,12 @@
 import React from 'react'
-import TopPicksAssetCard from './TopPicksAssetCard'
+import TopPicksAssetCard from './FavoriteAssetCard'
 import topPicksData from '../../data/topPicks'
-function TopPicks() {
+
+function Favorites() {
     return (
         <div className="">
             <div className="flex items-center justify-between ml-6 mt-3">
-                <h1 className="font-semibold text-lg ">BROTHA's Top Picks</h1>
+                <h1 className="font-semibold text-lg ">Your Favorites</h1>
                 <img src="/ellipses.svg" height={30} width={30} className="mr-6 hover:cursor-pointer" />
             </div>
 
@@ -21,4 +22,4 @@ function TopPicks() {
   )
 }
 
-export default TopPicks
+export default Favorites

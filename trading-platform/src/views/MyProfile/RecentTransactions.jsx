@@ -1,5 +1,5 @@
 import React from 'react'
-import TopPicksAssetCard from './TopPicksAssetCard'
+import TopPicksAssetCard from './FavoriteAssetCard'
 import recentTransactionData from '../../data/recentTransactions'
 
 function RecentTransactions() {

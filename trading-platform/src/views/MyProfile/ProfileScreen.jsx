@@ -1,5 +1,5 @@
 import React from 'react'
-import TopPicks from './TopPicks'
+import Favorites from './Favorites'
 import ForSale from './ForSale'
 import InvestmentStats from './InvestmentStats'
 import RecentTransactions from './RecentTransactions'
@@ -53,7 +53,7 @@ export const ProfileScreen = () => {
 
             {/*  top half*/}
               <div className="flex flex-col gap-10 mb-8 lg:mb-0 md:items-left lg:flex-row px-10 pt-5">
-                { views.info && <TopPicks />}
+                { views.info && <Favorites />}
                 { views.charts && <InvestmentStats />}
               </div>
 
