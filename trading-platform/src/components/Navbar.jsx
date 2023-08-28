@@ -11,10 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-export const Navbar = ( { setShowForSale}) => {
+export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -37,10 +37,9 @@ export const Navbar = ( { setShowForSale}) => {
     setShowForSale(prevState => { return !prevState})
   }
   return (
-    <AppBar position="sticky" sx={{backgroundColor: "black", zIndex: 10}}>
-      <Container maxWidth="xl">
+    <AppBar position="sticky" sx={{backgroundColor: "black", zIndex: 10 }}>
+      <Container maxWidth="2xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -88,12 +87,16 @@ export const Navbar = ( { setShowForSale}) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                <MenuItem key={"For Sale"} onClick={() => setShowForSale(prevState => !prevState)}>
-                  <Typography textAlign="center">{"For Sale"}</Typography>
-                </MenuItem>
-                <MenuItem key={"Transactions"} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{"Transactions"}</Typography>
-                </MenuItem>
+                <Link to="/ForSale">
+                  <MenuItem key={"For Sale"} >
+                    <Typography textAlign="center">{"For Sale"}</Typography>
+                  </MenuItem>
+                </Link>
+                <Link to="/TransactionHistory">
+                  <MenuItem key={"Transactions"}>
+                    <Typography textAlign="center">{"Transactions"}</Typography>
+                  </MenuItem>
+                </Link>
             </Menu>
           </Box>
           <Typography
@@ -115,20 +118,24 @@ export const Navbar = ( { setShowForSale}) => {
             CRYPTOBROTHA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Button
-                key={"For Sale"}
-                onClick={() => setShowForSale(prevState => !prevState)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {"For Sale"}
-              </Button>
-              <Button
-                key={"Transactions"}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {"Transactions"}
-              </Button>
+              <Link to="/ForSale">
+                <Button
+                  key={"For Sale"}
+                  onClick={() => setShowForSale(prevState => !prevState)}
+                  sx={{ my: 2, color: 'white', }}
+                >
+                  {"For Sale"}
+                </Button>
+              </Link>
+              <Link to="/TransactionHistory">
+                <Button
+                  key={"Transactions"}
+                  onClick={() => setShowTransactions(prevState => !prevState)}
+                  sx={{ my: 2, color: 'white', }}
+                  >
+                  {"Transactions"}
+                </Button>
+              </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

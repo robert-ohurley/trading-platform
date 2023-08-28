@@ -1,4 +1,10 @@
 import React from 'react'
+import { FaShoppingBag } from 'react-icons/fa'  
+import { FaReceipt } from 'react-icons/fa'  
+import { ImStatsBars} from 'react-icons/im'  
+import { BsFillInfoCircleFill} from 'react-icons/bs'  
+
+
 
 export const Sidebar = () => {
   return (
@@ -7,20 +13,17 @@ export const Sidebar = () => {
         <li className="my-20">
 
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
-          <img src="/icon5.svg" height={30} width={30} />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer flex items-center justify-center">
+          <FaShoppingBag size={"2rem"} />
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
-          <img src="/icon1.svg" height={30} width={30} />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer flex items-center justify-center">
+          <FaReceipt size={"2rem"} />
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
-          <img src="/icon2.svg" height={30} width={30} />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer flex items-center justify-center">
+          <ImStatsBars size={"2rem"} />
         </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
-          <img src="/icon3.svg" height={30} width={30} color="white" />   
-        </li>
-        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer">
-          <img src="/icon4.svg" height={30} width={30} />   
+        <li className="my-8 p-3 rounded-xl transition-colors hover:bg-slate-400 cursor-pointer flex items-center justify-center">
+          <BsFillInfoCircleFill size={"2rem"} />
         </li>
       </ul>
     </div>
