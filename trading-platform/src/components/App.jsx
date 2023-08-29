@@ -12,7 +12,6 @@ export default function App() {
 				<Route path='/MyProfile' element={<ProfileScreen />}></Route>
 				<Route path="/ForSale" element={<ForSalePage />} />
 				<Route path="/TransactionHistory" element={<TransactionHistoryPage />} />
-				<Route path='*' element={<ProfileScreen />}></Route>
 			</Routes>
 		</>
 	)

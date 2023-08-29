@@ -1,5 +1,4 @@
 import React from 'react'
-import TopPicksAssetCard from './FavoriteAssetCard'
 import MyPortfolioChart from './MyPortfolioChart'
 
 

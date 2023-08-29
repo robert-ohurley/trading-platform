@@ -1,5 +1,4 @@
 import React from 'react'
-import InvestmentStatCard from './InvestmentStatCard'
 
 function InvestmentStats() {
   return (
@@ -17,7 +16,7 @@ function InvestmentStats() {
             <img src="/investmenticon1.svg" height={80} width={80}/>
             <div className="flex flex-col">
               <p className="font-semibold text-sm ">Total Investment</p>
-              <p className="text-special-orange font-extrabold text-lg">0.005 Ether</p>
+              <p className="text-special-orange font-extrabold text-lg">0.024 Ether</p>
             </div>
           </div>
 
@@ -25,7 +24,7 @@ function InvestmentStats() {
             <img src="/investmenticon2.svg" height={80} width={80}/>
             <div className="flex flex-col">
               <p className="font-semibold text-sm ">Weekly Returns</p>
-              <p className="text-special-green font-extrabold text-lg">0.005 Ether</p>
+              <p className="text-special-green font-extrabold text-lg">0.221 Ether</p>
             </div>
           </div>
 
@@ -33,7 +32,7 @@ function InvestmentStats() {
             <img src="/investmenticon3.svg" height={80} width={80}/>
             <div className="flex flex-col">
               <p className="font-semibold text-sm ">Expenses</p>
-              <p className="text-special-red font-extrabold text-lg">0.005 Ether</p>
+              <p className="text-special-red font-extrabold text-lg">0.203 Ether</p>
             </div>
           </div>
         </div>

@@ -18,8 +18,6 @@ const initState = {
 export const ProfileScreen = () => {
   const [views, setViews] = useState(initState)
 
-  console.log(views)
-
   function handleViewChange(viewType) {
     setViews((prevState) => {
         return {

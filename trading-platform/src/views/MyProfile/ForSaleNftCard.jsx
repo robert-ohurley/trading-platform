@@ -1,5 +1,6 @@
 import React from 'react'
- 
+
+//colors are generated randomly. TODO: replace dynamically to indicate a change in price
 function getRandomColor() {
     let num = Math.floor(Math.random() * 3); 
     console.log(num)
@@ -7,7 +8,6 @@ function getRandomColor() {
     if (num === 1) return "/forsale2.svg"
     if (num === 2) return "/forsale3.svg"
 }
-
 
 function ForSaleNftCard({ url, idx, nft }) {
   return (

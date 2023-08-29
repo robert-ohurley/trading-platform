@@ -1,4 +1,7 @@
-// import getCrypto from "./hooks/getCrypto"
+//originally used this custom hook to grap crypto information to use as our dammy data. After we shifted away from crypto and
+//into nfts we wrote our own dummy data
+
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 

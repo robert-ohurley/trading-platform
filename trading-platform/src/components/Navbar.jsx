@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 export const Navbar = () => {
@@ -44,7 +44,7 @@ export const Navbar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/ForSale"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -87,21 +87,21 @@ export const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                <Link to="/ForSale">
+                <NavLink to="/ForSale" style={({ isActive }) => ({ color: isActive ? 'purple' : 'black' })}>
                   <MenuItem key={"For Sale"} >
                     <Typography textAlign="center">{"For Sale"}</Typography>
                   </MenuItem>
-                </Link>
-                <Link to="/TransactionHistory">
+                </NavLink>
+                <NavLink to="/TransactionHistory" style={({ isActive }) => ({ color: isActive ? 'purple' : 'black' })}>
                   <MenuItem key={"Transactions"}>
                     <Typography textAlign="center">{"Transactions"}</Typography>
                   </MenuItem>
-                </Link>
-                 <Link to="/MyProfile">
+                </NavLink>
+                 <NavLink to="/MyProfile" style={({ isActive }) => ({ color: isActive ? 'purple' : 'black' })}>
                   <MenuItem key={"MyProfile"}>
                     <Typography textAlign="center">{"My Profile"}</Typography>
                   </MenuItem>
-                </Link>           
+                </NavLink>           
             </Menu>
           </Box>
           <Typography
@@ -123,7 +123,7 @@ export const Navbar = () => {
             CRYPTOBROTHA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Link to="/ForSale">
+              <NavLink to="/ForSale" style={({ isActive }) => ({ backgroundColor: isActive ? 'purple' : 'black' })}>
                 <Button
                   key={"For Sale"}
                   onClick={() => setShowForSale(prevState => !prevState)}
@@ -131,8 +131,8 @@ export const Navbar = () => {
                 >
                   {"For Sale"}
                 </Button>
-              </Link>
-              <Link to="/TransactionHistory">
+              </NavLink>
+              <NavLink to="/TransactionHistory" style={({ isActive }) => ({ backgroundColor: isActive ? 'purple' : 'black' })}>
                 <Button
                   key={"Transactions"}
                   onClick={() => setShowTransactions(prevState => !prevState)}
@@ -140,8 +140,8 @@ export const Navbar = () => {
                   >
                   {"Transactions"}
                 </Button>
-              </Link>
-               <Link to="/MyProfile">
+              </NavLink>
+               <NavLink to="/MyProfile" style={({ isActive }) => ({ backgroundColor: isActive ? 'purple' : 'black' })}>
                 <Button
                   key={"MyProfile"}
                   onClick={() => setShowTransactions(prevState => !prevState)}
@@ -149,7 +149,8 @@ export const Navbar = () => {
                   >
                   {"My Profile"}
                 </Button>
-              </Link>         </Box>
+              </NavLink>        
+             </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
