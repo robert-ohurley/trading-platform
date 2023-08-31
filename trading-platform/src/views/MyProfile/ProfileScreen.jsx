@@ -50,13 +50,9 @@ export const ProfileScreen = () => {
             <div className="flex flex-col h-full ">
 
             {/*  top half*/}
-              <div className="flex flex-col gap-10 mb-8 lg:mb-0 md:items-left lg:flex-row px-10 pt-5">
+              <div className="flex flex-wrap gap-10 px-10 pt-5">
                 { views.info && <Favorites />}
                 { views.charts && <InvestmentStats />}
-              </div>
-
-              {/* bottom half  */}
-              <div className="flex flex-col gap-10 md:items-left lg:flex-row px-10">
                 { views.info && <RecentTransactions />}
                 { views.charts && <MyPortfolio /> }
               </div>

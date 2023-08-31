@@ -4,7 +4,7 @@ import recentTransactionData from '../../data/recentTransactions'
 
 function RecentTransactions() {
   return (
-    <div className=" w-fit">
+    <div className="">
         <div className="flex justify-between ml-6 mt-3">
             <h1 className="font-semibold text-lg">Recent Transactions</h1> 
             <img src="/ellipses.svg" height={30} width={30} className="mr-16"/>

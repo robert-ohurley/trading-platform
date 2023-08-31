@@ -18,22 +18,22 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export default function ForSaleModal({ buy, setBuy, nft }) {
+export default function TransactionModal({ transaction, viewTransaction, setViewTransaction}) {
 
   return (
     <div className="absolute">
 
       <BootstrapDialog
-        onClose={() => setBuy(false)}
+        onClose={() => setViewTransaction(false)}
         aria-labelledby="customized-dialog-title"
-        open={buy}
+        open={viewTransaction}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-        {nft.name}
+        {transaction.name}
         </DialogTitle>
         <IconButton
           aria-label="close"
-          onClick={() => setBuy(false)}
+          onClick={() => setViewTransaction(false)}
           sx={{
             position: 'absolute',
             right: 8,
@@ -44,23 +44,26 @@ export default function ForSaleModal({ buy, setBuy, nft }) {
           <CloseIcon />
         </IconButton>
         <DialogContent dividers className='flex flex-col items-center justify-center mb-5'>
-            <img src={nft.image} />
+            <img src={transaction.image} />
           <Typography gutterBottom sx={{ fontSize:"2rem", marginTop:"1rem" }} >
-            {nft.dollarValue} / {nft.ethValue}
-          </Typography>
-          <Typography gutterBottom sx={{marginTop:""}}>
-          Inspired by spiritual iconography like the Hamsa, {nft.name} draws attention to the power symbols hold in everyday life. The two works for this drop, specifically, highlight a playful and colorful corner of the series. As with many in the series, "smoke! haze!" and "where is my mind" are named after titles/lyrics of inspiring songs to the artist.
-          </Typography>
-          <Typography gutterBottom>
-          “This piece is fun and free like the summer. The colors and textures I accomplished with these also really give a psychedelic energy and a sense of nature. I don’t use a lot of purples or pinks in my work, and my usual blues are mostly out of the picture here. I feel like this is the perfect vibe for an on-chain summer expression.”
+            {transaction.dollarValue}  
           </Typography>
 
+        <div className="flex justify-center w-full">
+            <p className="mr-2 " >Transaction Date: </p>
+            <p>{transaction.date}</p>
+        </div>
+
+        <div className="flex justify-start w-full mt-5 ">
+            <p className="mr-2 font-bold"  >From: </p>
+            <p>0699999cf1046e68e36E1aA2E0E07105eDDD1f08E</p>
+        </div>
+
+        <div className="flex justify-start w-full">
+            <p className="mr-2 font-bold" >To: </p>
+            <p>{transaction.wallet}</p>
+        </div>
         </DialogContent>
-        <DialogActions sx={{ display:"flex", justifyContent:"center", alignItems:"center", marginBottom:"1rem"}}>
-          <Button autoFocus onClick={() => setBuy(false)} variant='contained'>
-            Buy Now 
-          </Button>
-        </DialogActions>
       </BootstrapDialog>
     </div>
   );
