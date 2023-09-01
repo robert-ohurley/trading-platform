@@ -7,3 +7,14 @@ const recentTransactionData = [
     { name: "Crypto Diamonds", dollarValue: "$114", image: "/recent6.jpeg", date: "09/01/2023", wallet: "0x04CC75624507317C5B1ec171E1643Ad710DFb3bD"},
 ]
 export default recentTransactionData
+
+
+// add transaction hash 
+// replace aribtrary date with timestamp 
+// status
+
+// add a product confirmation page i.e. from which wallet, to which wallet, the name, the time include the response i.e. success
+
+//additional filters for searching.
+
+// explainthe usability principles, // responsiveness with references.at least 3 referebces 

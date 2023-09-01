@@ -87,17 +87,17 @@ export const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                <NavLink to="/ForSale" style={({ isActive }) => ({ color: isActive ? 'purple' : 'black' })}>
+                <NavLink to="/ForSale" style={({ isActive }) => ({ color: isActive ? '#EFBAFF' : 'black' })}>
                   <MenuItem key={"For Sale"} >
                     <Typography textAlign="center">{"For Sale"}</Typography>
                   </MenuItem>
                 </NavLink>
-                <NavLink to="/TransactionHistory" style={({ isActive }) => ({ color: isActive ? 'purple' : 'black' })}>
+                <NavLink to="/TransactionHistory" style={({ isActive }) => ({ color: isActive ? '#efbaff' : 'black' })}>
                   <MenuItem key={"Transactions"}>
                     <Typography textAlign="center">{"Transactions"}</Typography>
                   </MenuItem>
                 </NavLink>
-                 <NavLink to="/MyProfile" style={({ isActive }) => ({ color: isActive ? 'purple' : 'black' })}>
+                 <NavLink to="/MyProfile" style={({ isActive }) => ({ color: isActive ? '#EFBAFFs' : 'black' })}>
                   <MenuItem key={"MyProfile"}>
                     <Typography textAlign="center">{"My Profile"}</Typography>
                   </MenuItem>
@@ -123,7 +123,7 @@ export const Navbar = () => {
             CRYPTOBROTHA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <NavLink to="/ForSale" style={({ isActive }) => ({ backgroundColor: isActive ? 'purple' : 'black' })}>
+              <NavLink to="/ForSale" style={({ isActive }) => ({ backgroundColor: isActive ? '#c477c8' : 'black' })}>
                 <Button
                   key={"For Sale"}
                   onClick={() => setShowForSale(prevState => !prevState)}
@@ -132,7 +132,7 @@ export const Navbar = () => {
                   {"For Sale"}
                 </Button>
               </NavLink>
-              <NavLink to="/TransactionHistory" style={({ isActive }) => ({ backgroundColor: isActive ? 'purple' : 'black' })}>
+              <NavLink to="/TransactionHistory" style={({ isActive }) => ({ backgroundColor: isActive ? '#c477c8' : 'black' })}>
                 <Button
                   key={"Transactions"}
                   onClick={() => setShowTransactions(prevState => !prevState)}
@@ -141,7 +141,7 @@ export const Navbar = () => {
                   {"Transactions"}
                 </Button>
               </NavLink>
-               <NavLink to="/MyProfile" style={({ isActive }) => ({ backgroundColor: isActive ? 'purple' : 'black' })}>
+               <NavLink to="/MyProfile" style={({ isActive }) => ({ backgroundColor: isActive ? '#c477c8' : 'black' })}>
                 <Button
                   key={"MyProfile"}
                   onClick={() => setShowTransactions(prevState => !prevState)}
