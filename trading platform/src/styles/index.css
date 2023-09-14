@@ -1,0 +1,11 @@
+/* No CSS used. This file is only required to include the Tailwind utility classes */
+ 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+      font-family: Raleway;
+    }
+  }
