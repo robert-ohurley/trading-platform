@@ -29,7 +29,7 @@ export default function ForSaleModal({ purchaseStage, setPurchaseStage, nft }) {
         open={purchaseStage.buy}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          {nft.name}
+          {nft.Name}
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -44,17 +44,13 @@ export default function ForSaleModal({ purchaseStage, setPurchaseStage, nft }) {
           <CloseIcon />
         </IconButton>
         <DialogContent dividers className='flex flex-col items-center justify-center mb-5'>
-          <img src={nft.image} />
+          <img src={nft.Img} />
           <Typography gutterBottom sx={{ fontSize: "2rem", marginTop: "1rem" }} >
-            {nft.dollarValue} / {nft.ethValue}
+            {nft.Price} { " eth"}
           </Typography>
           <Typography gutterBottom sx={{ marginTop: "" }}>
-            Inspired by spiritual iconography like the Hamsa, {nft.name} draws attention to the power symbols hold in everyday life. The two works for this drop, specifically, highlight a playful and colorful corner of the series. As with many in the series, "smoke! haze!" and "where is my mind" are named after titles/lyrics of inspiring songs to the artist.
+            {nft.Description}
           </Typography>
-          <Typography gutterBottom>
-            “This piece is fun and free like the summer. The colors and textures I accomplished with these also really give a psychedelic energy and a sense of nature. I don’t use a lot of purples or pinks in my work, and my usual blues are mostly out of the picture here. I feel like this is the perfect vibe for an on-chain summer expression.”
-          </Typography>
-
         </DialogContent>
         <DialogActions sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "1rem" }}>
           <Button onClick={() => setPurchaseStage({ buy: false, confirmBuy: true })} variant='contained'>

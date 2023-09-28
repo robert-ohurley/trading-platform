@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ForSaleHeader from './ForSaleHeader'
 import forSaleData from '../../data/forSaleNfts'
 import ForSaleNFT from './ForSaleNFT'
 
 function ForSalePage() {
   const [search, setSearch] = useState("")
+  const [nfts, setNfts] = useState("")
   const [sortFilter, setSortFilter] = useState("")
   let sortedData = [...forSaleData]
+
+  useEffect(() => {
+    fetch('http://localhost:3001/asset', {
+      method:"GET",
+    })
+    .then(res => res.json())
+    .then(data => setNfts(data))
+    .catch(err => console.log(err))
+  }, [])
 
   {/* orders a copy of the hardcoded array data by the search criteria, foltering by search term is applied in the JSX  */ }
   if (sortFilter === "Price: Low to High") {
@@ -25,7 +35,8 @@ function ForSalePage() {
       <div className="w-screen h-screen flex justify-center mt-10">
         <div className="flex flex-wrap w-5/6 h-1/2 gap-10">
           {/* Filters out all for sale items not matched by the search query  */}
-          {sortedData.filter(nft => nft.name.toLowerCase().includes(search.toLowerCase())).map((nft,idx) => <ForSaleNFT nft={nft} key={idx}/>)}
+
+          {nfts.length != 0 ? nfts.filter(nft => nft.Name.toLowerCase().includes(search.toLowerCase())).map((nft,idx) => <ForSaleNFT nft={nft} key={idx}/>) : null}
         </div>
       </ div>
     </>

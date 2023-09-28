@@ -31,7 +31,7 @@ export default function PurchaseConfirmationModal({ purchaseStage, setPurchaseSt
                 open={purchaseStage.confirmBuy}
             >
                 <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-                    {nft.name}
+                    {nft.Name}
                 </DialogTitle>
                 <IconButton
                     aria-label="close"
@@ -46,16 +46,16 @@ export default function PurchaseConfirmationModal({ purchaseStage, setPurchaseSt
                     <CloseIcon />
                 </IconButton>
                 <DialogContent dividers className='flex flex-col items-center justify-center mb-5'>
-                    <img width={100} height={100} src={nft.image} />
+                    <img width={100} height={100} src={nft.Img} />
                     <Typography gutterBottom sx={{ fontSize: "2rem", marginTop: "1rem" }} >
-                        {nft.dollarValue} / {nft.ethValue}
+                        {nft.Price}{ " eth"}
                     </Typography>
                     <Typography gutterBottom sx={{ marginTop: "" }}>
                         CONFIRM YOUR MARKETPLACE PURCHASE:
                     </Typography>
                     <div className="flex justify-center w-full">
                         <p className="mr-2 " >Date: </p>
-                        <p>Sep-01-2023</p>
+                        {new Date().toLocaleString()}
                     </div>
 
                     <div className="flex justify-start items-center w-full mt-5 ">
