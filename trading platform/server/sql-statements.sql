@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS `user` (
     Id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
     Username VARCHAR(20) UNIQUE NOT NULL,
-    Password VARCHAR(20) NOT NULL,
+    Password TEXT NOT NULL,
     Email VARCHAR(40) NOT NULL UNIQUE
 );
 
@@ -37,4 +37,4 @@ INSERT INTO `asset` (Name, Description, Price, Category) VALUES
 
 
 INSERT INTO `user` (Username, Password, Email) VALUES
-('admin', 'root', 'admin@cryptobrotha.com')
+('admin', '$2a$10$YhCeH4mZL8fobRxExOoO/.E1HGR1P.xVXaP4KBjuiZjc7ng7BPNIu', 'admin@cryptobrotha.com')
