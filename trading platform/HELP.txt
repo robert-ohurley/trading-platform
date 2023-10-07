@@ -1,0 +1,13 @@
+make sure ganache is running a separate local blockchain
+
+make sure the truffle-config.js points to the address of the ganache blockchain
+
+run truffle migrate to compile and migrate the contract to he ganche blockchain. 
+
+if you run truffle develop you'll use the truffle blockchain
+
+run truffle console to interact with the ganache blockchain.
+
+
+USE THIS!!!!!!!!!!!!!!!!!!
+https://trufflesuite.com/docs/truffle/quickstart/
