@@ -13,6 +13,8 @@ import { fileURLToPath } from 'url';
 import Web3 from 'web3';
 import path from 'path';
 
+const contractName = 'TradeHistory'
+const fileName = 'TradeHistory.sol'
 
 //dirty hack to get __dirname in an ES module apparently
 const __filename = fileURLToPath(import.meta.url);
@@ -25,13 +27,13 @@ web3.eth.Contract.handleRevert = true;
 
 
 // Read the bytecode from the file system
-const bytecodePath = path.join(__dirname, '/MetaCoin.bin');
+const bytecodePath = path.join(__dirname, `/${contractName}.bin`);
 const bytecode = fs.readFileSync(bytecodePath, 'utf8');
 
 
 // Create a new contract object using the ABI and bytecode
 // const abi = require('./MetaCoin.json');
-import abi from './MetaCoin.json' assert { type: "json"}
+import abi from './TradeHistory.json' assert { type: "json"}
 const MyContract = new web3.eth.Contract(abi);
 console.log(MyContract.deploy);
 

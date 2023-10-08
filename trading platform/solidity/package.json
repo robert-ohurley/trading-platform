@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "solidity code",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "nft" : "node compile.js && node deploy.js && node interact.js "
+    "nft": "node compile.js && node deploy.js && node interact.js "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "solc": "^0.8.0",
     "truffle": "^5.11.5"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
   }
 }

@@ -1,0 +1,81 @@
+Basic Data Types;
+boolean
+uint256
+int256
+address
+
+
+Variables:
+There are 3 types of variables in Solidity
+
+local
+    declared inside a function
+    not stored on the blockchain
+state
+    declared outside a function
+    stored on the blockchain
+global (provides information about the blockchain)
+
+// Here are some global variables
+uint timestamp = block.timestamp; // Current block timestamp
+address sender = msg.sender; // address of the caller
+
+
+Constants:
+their value is hardcoded and saves gas.
+// coding convention to uppercase constant variables
+address public constant MY_ADDRESS = 0x777788889999AaAAbBbbCcccddDdeeeEfFFfCcCc;
+uint public constant MY_UINT = 123;
+
+Reading and Writing to a State Variable:
+To write or update a state variable you need to send a transaction.
+On the other hand, you can read state variables, for free, without any transaction fee.
+    function set(uint _num) public {
+        num = _num;
+    }
+
+    // You can read from a state variable without sending a transaction.
+    function get() public view returns (uint) {
+        return num;
+    }    
+
+
+If statements/for while loops are the same as always. 
+
+Mapping:
+Maps are created with the syntax mapping(keyType => valueType).
+The keyType can be any built-in value type, bytes, string, or any contract.
+valueType can be any type including another mapping or an array.
+Mappings are not iterable.
+
+mapping(address => uint) public myMap;
+
+function get(address _addr) public view returns (uint) {
+    // Mapping always returns a value.
+    // If the value was never set, it will return the default value.
+    return myMap[_addr];
+}
+
+function set(address _addr, uint _i) public {
+    // Update the value at this address
+    myMap[_addr] = _i;
+}
+
+function remove(address _addr) public {
+    // Reset the value to the default value.
+    delete myMap[_addr];
+}
+
+
+
+
+
+
+
+vIEW AND pURE fUNCTIONS
+Getter functions can be declared view or pure.
+
+View function declares that no state will be changed.
+
+Pure function declares that no state variable will be changed or read.
+
