@@ -20,6 +20,7 @@ contract TradeHistory {
         uint price;
         Status transactionStatus;
         uint timestamp;
+        string newOwnerEmail;
     }
 
     //storage -- state variables are stored on blockchain
@@ -48,15 +49,15 @@ contract TradeHistory {
         }
     }
 
-    function createTrade(string calldata assetName, string calldata newOwnerUsername, address sender, address reciever, uint price, uint timestamp) pure private returns (Trade memory) {
-        Trade memory newTrade = Trade({ assetName : assetName, newOwnerUsername : newOwnerUsername, sender : sender, reciever : reciever, price : price, timestamp : timestamp, transactionStatus : Status.Pending });
+    function createTrade(string calldata assetName, string calldata newOwnerUsername, address sender, address reciever, uint price, uint timestamp, string calldata newOwnerEmail) pure private returns (Trade memory) {
+        Trade memory newTrade = Trade({ assetName : assetName, newOwnerUsername : newOwnerUsername, sender : sender, reciever : reciever, price : price, timestamp : timestamp, transactionStatus : Status.Pending, newOwnerEmail : newOwnerEmail });
         return newTrade;
     }
 
 
     //creates a trade struct and performs eth transaction. If successfull new trade struct status is set to complete and is pushed to array of trades;
-	function addTrade(string calldata assetName, string calldata newOwnerUsername, address sender, address reciever, uint price, uint timestamp) public {
-        Trade memory currentTrade = createTrade({ assetName : assetName, newOwnerUsername: newOwnerUsername, sender : sender, reciever : reciever, price : price, timestamp : timestamp });
+	function addTrade(string calldata assetName, string calldata newOwnerUsername, address sender, address reciever, uint price, uint timestamp, string calldata newOwnerEmail) public {
+        Trade memory currentTrade = createTrade({ assetName : assetName, newOwnerUsername: newOwnerUsername, sender : sender, reciever : reciever, price : price, timestamp : timestamp, newOwnerEmail : newOwnerEmail});
 
         trades.push(currentTrade);
 

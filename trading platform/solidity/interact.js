@@ -61,25 +61,6 @@ async function interact() {
 interact();
    
 
-//my shit for doing a trade
-        // let trades;
-        // trades = await MyContract.methods.getTrades().call();
-        // console.log('my trades: ', trades);
-
-
-        // await MyContract.methods.addTrade('Digital Wank', 
-        //     'Rojet', '0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7', 
-        //     '0x88126883a7c3dd9685e50EE8E02c776BB79a0a4F', 
-        //     1, 
-        //     Math.floor(new Date().getTime() / 1000))
-        //     .send({
-        //     from: defaultAccount,
-        //     gas: 1000000,
-        //     gasPrice: 10000000000,
-        // });
-
-        // trades = await MyContract.methods.getTrades().call();
-        // console.log('my trades: ', trades.length);
         
 
 
