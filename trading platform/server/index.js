@@ -1,6 +1,7 @@
 import express from 'express';
 import assetRoutes from './routes/asset.js'
 import userRoutes from './routes/user.js'
+import transactionRoutes from './routes/transaction.js'
 import cors from 'cors'
 
 const app = express();
@@ -13,4 +14,5 @@ app.listen(3001, () => {
 
 app.use('/asset', assetRoutes)
 app.use('/user', userRoutes)
+app.use('/transaction', transactionRoutes)
 

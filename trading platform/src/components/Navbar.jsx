@@ -12,11 +12,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { NavLink } from 'react-router-dom'
+import { requestUsersBalance } from '../../solidity/trade'; 
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [balance, setBalance] = React.useState(undefined)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,6 +38,12 @@ export const Navbar = () => {
   const handleToggleForSale = () => {
     setShowForSale(prevState => { return !prevState })
   }
+
+  React.useEffect(() => {
+    requestUsersBalance().then(result => setBalance(parseFloat(result).toFixed(2)))
+  }, [])
+
+
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "black", zIndex: 10 }}>
       <Container maxWidth="2xl">
@@ -126,7 +134,6 @@ export const Navbar = () => {
             <NavLink to="/ForSale" style={({ isActive }) => ({ backgroundColor: isActive ? '#c477c8' : 'black' })}>
               <Button
                 key={"For Sale"}
-                onClick={() => setShowForSale(prevState => !prevState)}
                 sx={{ my: 2, color: 'white', }}
               >
                 {"For Sale"}
@@ -135,7 +142,6 @@ export const Navbar = () => {
             <NavLink to="/TransactionHistory" style={({ isActive }) => ({ backgroundColor: isActive ? '#c477c8' : 'black' })}>
               <Button
                 key={"Transactions"}
-                onClick={() => setShowTransactions(prevState => !prevState)}
                 sx={{ my: 2, color: 'white', }}
               >
                 {"Transactions"}
@@ -144,7 +150,6 @@ export const Navbar = () => {
             <NavLink to="/MyProfile" style={({ isActive }) => ({ backgroundColor: isActive ? '#c477c8' : 'black' })}>
               <Button
                 key={"MyProfile"}
-                onClick={() => setShowTransactions(prevState => !prevState)}
                 sx={{ my: 2, color: 'white', }}
               >
                 {"My Profile"}
@@ -152,7 +157,9 @@ export const Navbar = () => {
             </NavLink>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, flexDirection:'row', display:'flex' }}>
+            <span className="text-bold mt-2 mr-2">Balance:</span>
+            <span className="mt-2 r mr-4 font-bold"> {balance} eth</span>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import ForSaleNft from './ForSaleNftCard';
+import TrendingNftCard from './TrendingNftCard';
 import forSaleData from '../../data/forSaleNfts';
 
 const Item = styled(Paper)(({ theme, search }) => ({
@@ -12,11 +12,11 @@ const Item = styled(Paper)(({ theme, search }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function ForSaleGrid({ search }) {
+export default function TrendingScrollview({ search }) {
   return (
     <>
       {forSaleData.filter(nft => nft.name.toLowerCase().includes(search.toLowerCase())).map((nft, idx) =>
-        <ForSaleNft key={idx} idx={idx} nft={nft} />
+        <TrendingNftCard key={idx} idx={idx} nft={nft} />
       )}
     </>
   );

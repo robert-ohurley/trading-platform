@@ -46,7 +46,7 @@ export default function ForSaleModal({ purchaseStage, setPurchaseStage, nft }) {
         <DialogContent dividers className='flex flex-col items-center justify-center mb-5'>
           <img src={nft.Img} />
           <Typography gutterBottom sx={{ fontSize: "2rem", marginTop: "1rem" }} >
-            {nft.Price} { " eth"}
+            {nft.Name} - {nft.Price} { " eth"}
           </Typography>
           <Typography gutterBottom sx={{ marginTop: "" }}>
             {nft.Description}

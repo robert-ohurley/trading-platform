@@ -21,7 +21,6 @@ function ForSalePage() {
     } else if (sortFilter === "NFT Name: Z-A") {
       sortedNfts = sortedNfts.sort((a, b) => { return b.Name.toLowerCase().localeCompare(a.Name.toLowerCase()) })
     }
-    console.log(sortedNfts)
     return sortedNfts; 
   }
 
@@ -34,19 +33,16 @@ function ForSalePage() {
     .then(data => setNfts(data))
     .catch(err => setError(err))    
   }, [])
-
   
-  console.log(nfts)
   return (
     <>
       <ForSaleHeader search={search} setSearch={setSearch} sortFilter={sortFilter} setSortFilter={setSortFilter} />
       <div className="w-screen h-screen flex justify-center mt-10">
         <div className="flex flex-wrap w-5/6 h-1/2 gap-10">
-          { error != null ? <h1>Error while fetching data from database, please try again.</h1> : null }
+          { error != null ? <h1 className="text-center">Error while fetching data from database, please try again.</h1> : null }
           
           {/* Filters out all for sale items not matched by the search query  */}
           {nfts.length != 0 && error === null ? sortBasedOnFilter(nfts).filter(nft => nft.Name.toLowerCase().includes(search.toLowerCase())).map((nft,idx) => <ForSaleNFT nft={nft} key={idx}/>) : null}
-          {/* {sortedNfts.length != 0 && error === null ? sortedNfts.filter(nft => nft.Name.toLowerCase().includes(search.toLowerCase())).map((nft,idx) => <ForSaleNFT nft={nft} key={idx}/>) : null} */}
         </div>
       </ div>
     </>

@@ -53,8 +53,8 @@ export const ProfileScreen = () => {
 
               {/*  top half*/}
               <div className="flex flex-wrap gap-10 px-10 pt-5">
-                {views.info && <Favorites />}
                 {views.charts && <InvestmentStats />}
+                {views.info && <Favorites />}
                 {views.info && <RecentTransactions />}
                 {views.charts && <MyPortfolio />}
               </div>

@@ -1,8 +1,10 @@
 import React from 'react'
-import TopPicksAssetCard from './FavoriteAssetCard'
-import recentTransactionData from '../../data/recentTransactions'
+import RecentTransactionCard from './RecentTransactionCard'
+import { useTransactionsContext } from '../../contexts/transactionsContextProvider';
 
 function RecentTransactions() {
+  let { getTransactions } = useTransactionsContext();
+
   return (
     <div className="">
       <div className="flex justify-between ml-6 mt-3">
@@ -11,7 +13,7 @@ function RecentTransactions() {
       </div>
 
       <div className="flex flex-col h-full">
-        {recentTransactionData.slice(0, 4).map((transaction, idx) => <TopPicksAssetCard key={idx} name={transaction.name} price={transaction.dollarValue} image={transaction.image} />)}
+        {getTransactions().length > 0 ? getTransactions().map((transaction, idx) => <RecentTransactionCard key={idx} name={transaction.nftName} price={transaction.ethValue} image={transaction.image} />) : <h1 className="mt-3 ml-6 ">You have no transactions</h1> }
       </div>
 
     </div>

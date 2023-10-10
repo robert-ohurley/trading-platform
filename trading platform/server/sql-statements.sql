@@ -1,3 +1,7 @@
+create database nft if not exists;
+
+use nft;
+
 CREATE TABLE IF NOT EXISTS `user` (
     Id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
     Username VARCHAR(20) UNIQUE NOT NULL,
@@ -9,9 +13,18 @@ CREATE TABLE IF NOT EXISTS `asset` (
     Id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
     Name VARCHAR(20) NOT NULL UNIQUE,
     Description TEXT NOT NULL,
-    Price INT NOT NULL,
+    Price DECIMAL NOT NULL,
     Category VARCHAR(30) NOT NULL
 );
+
+ 
+CREATE TABLE IF NOT EXISTS `transaction` (
+    Id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+    user_id INT NOT NULL,
+    transaction_hash VARCHAR(80) UNIQUE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
 
 INSERT INTO `asset` (Name, Description, Price, Category) VALUES
 ('Bling Bits', 'A visually stunning piece of digital art that represents the convergence of style and modern tech.', 0.034, 'Digital art', '/nft1.png'),

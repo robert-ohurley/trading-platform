@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ForSaleGrid from './ForSaleGrid'
+import TrendingScrollview from './TrendingScrollview' 
 
 function ForSale() {
   const [search, setSearch] = useState("")
@@ -13,8 +13,7 @@ function ForSale() {
         <h1 className="font-semibold text-lg ml-8">Trending</h1>
         <input type="text" placeholder='Search...' className="w-64 mr-10 rounded-lg p-2 border" value={search} onChange={e => setSearch(e.target.value)} />
       </div>
-      <ForSaleGrid search={search} />
-      <ForSaleGrid search={search} />
+      <TrendingScrollview search={search} />
     </div>
   )
 }

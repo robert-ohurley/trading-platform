@@ -13,14 +13,14 @@ contract TradeHistory {
     }
 
     struct Trade {
-        string assetName;
-        string newOwnerUsername;
-        address sender;
-        address reciever;
-        uint price;
+        string nftName;
+        address from;
+        address to;
+        string ethValue;
         Status transactionStatus;
-        uint timestamp;
-        string newOwnerEmail;
+        string timeStamp;
+        string image;
+        string transactionHash;
     }
 
     //storage -- state variables are stored on blockchain
@@ -49,35 +49,19 @@ contract TradeHistory {
         }
     }
 
-    function createTrade(string calldata assetName, string calldata newOwnerUsername, address sender, address reciever, uint price, uint timestamp, string calldata newOwnerEmail) pure private returns (Trade memory) {
-        Trade memory newTrade = Trade({ assetName : assetName, newOwnerUsername : newOwnerUsername, sender : sender, reciever : reciever, price : price, timestamp : timestamp, transactionStatus : Status.Pending, newOwnerEmail : newOwnerEmail });
+    function createTrade(string calldata nftName, address from, address to, string memory ethValue, string calldata timeStamp, string calldata image, string calldata transactionHash) pure private returns (Trade memory) {
+        Trade memory newTrade = Trade({ nftName : nftName, from : from, to : to, ethValue : ethValue, transactionStatus : Status.Completed, timeStamp:timeStamp, image:image, transactionHash:transactionHash});
         return newTrade;
     }
 
 
     //creates a trade struct and performs eth transaction. If successfull new trade struct status is set to complete and is pushed to array of trades;
-	function addTrade(string calldata assetName, string calldata newOwnerUsername, address sender, address reciever, uint price, uint timestamp, string calldata newOwnerEmail) public {
-        Trade memory currentTrade = createTrade({ assetName : assetName, newOwnerUsername: newOwnerUsername, sender : sender, reciever : reciever, price : price, timestamp : timestamp, newOwnerEmail : newOwnerEmail});
-
+	function addTrade(string calldata nftName, address from, address to, string memory ethValue, string calldata timeStamp, string calldata image, string calldata transactionHash) public {
+        Trade memory currentTrade = createTrade({ nftName : nftName, from : from, to : to, ethValue : ethValue, timeStamp:timeStamp, image:image, transactionHash:transactionHash });
         trades.push(currentTrade);
-
-        //send price in ether from sender to reciever
-        // send();
-       //if successful change status to completed and push trade onto trades array
-
 	}
 
 	function getTrades() public view returns (Trade[] memory){
 		return trades;	
 	}
-
-	// function sendCoin(address receiver, uint amount) public returns(bool sufficient) {
-	// 	if (balances[msg.sender] < amount) return false;
-	// 	balances[msg.sender] -= amount;
-	// 	balances[receiver] += amount;
-	// 	emit Transfer(msg.sender, receiver, amount);
-	// 	return true;
-	// }
-
-	// event Transfer(address indexed _from, address indexed _to, uint256 _value);
 }

@@ -10,6 +10,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { Select, MenuItem } from "@mui/material";
+import tradeNft from '../../../solidity/trade';
+import { useTransactionsContext } from '../../contexts/transactionsContextProvider';
+import { requestSellersWallet } from '../../../solidity/trade';
+import { useState, useEffect } from 'react';
+import useSnackbar from '../../hooks/useSnackbar';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -21,6 +26,25 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export default function PurchaseConfirmationModal({ purchaseStage, setPurchaseStage, nft }) {
+    const { addTransaction } = useTransactionsContext()
+    const [ sellersWallet, setSellersWallet] = useState('')
+    const [ buyersWallet, setBuyersWallet] = useState('')
+    const addAlert = useSnackbar();
+
+    useEffect(() => {
+        requestSellersWallet().then(wallet => setSellersWallet(wallet))
+    }, [])
+
+    async function addTransactionToDatabase(userId, transactionHash) {
+        let res = await fetch('http://localhost:3001/transaction', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: userId, transactionHash: transactionHash})
+        })
+        return res;
+    }
 
     return (
         <div className="absolute">
@@ -48,7 +72,7 @@ export default function PurchaseConfirmationModal({ purchaseStage, setPurchaseSt
                 <DialogContent dividers className='flex flex-col items-center justify-center mb-5'>
                     <img width={100} height={100} src={nft.Img} />
                     <Typography gutterBottom sx={{ fontSize: "2rem", marginTop: "1rem" }} >
-                        {nft.Price}{ " eth"}
+                        {nft.Name} - {nft.Price}{ " eth"}
                     </Typography>
                     <Typography gutterBottom sx={{ marginTop: "" }}>
                         CONFIRM YOUR MARKETPLACE PURCHASE:
@@ -66,18 +90,15 @@ export default function PurchaseConfirmationModal({ purchaseStage, setPurchaseSt
                                 marginBottom:"1rem",
                                 color: 'black'
                             }}
+                            onChange={(e) => setBuyersWallet(e.target.value)}
                         >
-                            <MenuItem value={'0x20Fa2e01715077a8aD73646666bF624b0bda1039'}>0x20Fa2e01715077a8aD73646666bF624b0bda1039</MenuItem>
-                            <MenuItem value={'0x2bFf581CAF0ad8573F494B9823b7C6f1d4f7b0CB'}>0x2bFf581CAF0ad8573F494B9823b7C6f1d4f7b0CB</MenuItem>
-                            <MenuItem value={'0xAa93053b6B1432FeF022C417a38cd47ca378Ac85'}>0xAa93053b6B1432FeF022C417a38cd47ca378Ac85</MenuItem>
-                            <MenuItem value={'0x2B6c674e016849e543336Ee2d1d292503b3b5119'}>0x2B6c674e016849e543336Ee2d1d292503b3b5119</MenuItem>
-                            <MenuItem value={'0x071b85Ca45fc345Bf80c1A04f1d60531B02Fdb7B'}>0x071b85Ca45fc345Bf80c1A04f1d60531B02Fdb7B</MenuItem>
+                            <MenuItem value={'0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7'}>0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7</MenuItem>
                         </Select>
                     </div>
 
                     <div className="flex justify-start w-full">
                         <p className="mr-2 font-bold" >To: </p>
-                        <p>06fk237943798327198692hk4731297712831f08E</p>
+                        <p>{sellersWallet}</p>
                     </div>
 
                 </DialogContent>
@@ -86,7 +107,19 @@ export default function PurchaseConfirmationModal({ purchaseStage, setPurchaseSt
                         <Button onClick={() => setPurchaseStage({ buy: false, confirmBuy: false })} variant='outlined'>
                             Cancel
                         </Button>
-                        <Button onClick={() => setPurchaseStage({ buy: false, confirmBuy: false })} variant='contained'>
+                        <Button disabled={buyersWallet == ""} onClick={async () => {
+                            try {
+                                setPurchaseStage({ buy: false, confirmBuy: false })
+                                let receipt = await tradeNft('0x88126883a7c3dd9685e50EE8E02c776BB79a0a4F', nft.Price, nft.Name, nft.Img)
+                                addTransaction(receipt);
+                                addAlert({severity: 'success', message: `Successfully purcased ${nft.Name} for ${nft.Price} eth.`})
+                                await addTransactionToDatabase(1, receipt?.transactionHash);
+                                console.log(receipt)
+                            } catch (e) {
+                                addAlert({severity: 'error', message: `Something went wrong during transaction.`})
+                            }
+                         }
+                        } variant='contained'>
                             Confirm Purchase
                         </Button>
                     </ButtonGroup>

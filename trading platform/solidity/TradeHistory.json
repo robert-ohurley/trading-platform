@@ -27,33 +27,38 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "assetName",
+				"name": "nftName",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "ethValue",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "newOwnerUsername",
+				"name": "timeStamp",
 				"type": "string"
 			},
 			{
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
+				"internalType": "string",
+				"name": "image",
+				"type": "string"
 			},
 			{
-				"internalType": "address",
-				"name": "reciever",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "timestamp",
-				"type": "uint256"
+				"internalType": "string",
+				"name": "transactionHash",
+				"type": "string"
 			}
 		],
 		"name": "addTrade",
@@ -81,47 +86,29 @@
 	},
 	{
 		"inputs": [],
-		"name": "getMagicNumber",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "pure",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "getTrades",
 		"outputs": [
 			{
 				"components": [
 					{
 						"internalType": "string",
-						"name": "assetName",
+						"name": "nftName",
 						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
 					},
 					{
 						"internalType": "string",
-						"name": "newOwnerUsername",
+						"name": "ethValue",
 						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "reciever",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "price",
-						"type": "uint256"
 					},
 					{
 						"internalType": "enum TradeHistory.Status",
@@ -129,9 +116,19 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "uint256",
-						"name": "timestamp",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "timeStamp",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "image",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "transactionHash",
+						"type": "string"
 					}
 				],
 				"internalType": "struct TradeHistory.Trade[]",
@@ -164,19 +161,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address payable",
-				"name": "addr",
-				"type": "address"
-			}
-		],
-		"name": "sendMoneys",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
@@ -186,28 +170,23 @@
 		"outputs": [
 			{
 				"internalType": "string",
-				"name": "assetName",
+				"name": "nftName",
 				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
 			},
 			{
 				"internalType": "string",
-				"name": "newOwnerUsername",
+				"name": "ethValue",
 				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "reciever",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
 			},
 			{
 				"internalType": "enum TradeHistory.Status",
@@ -215,9 +194,19 @@
 				"type": "uint8"
 			},
 			{
-				"internalType": "uint256",
-				"name": "timestamp",
-				"type": "uint256"
+				"internalType": "string",
+				"name": "timeStamp",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "image",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "transactionHash",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",

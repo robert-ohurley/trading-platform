@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 //colors are generated randomly. TODO: replace dynamically to indicate a change in price
 function getRandomColor() {
@@ -9,15 +10,17 @@ function getRandomColor() {
     if (num === 2) return "/forsale3.svg"
 }
 
-function ForSaleNftCard({ url, idx, nft }) {
+function TrendingNftCard({ url, idx, nft }) {
+
     return (
+        <NavLink to="/ForSale">
+
         <div className="flex flex-row justify-between border mb-5 ml-6 mr-6 w-25rem p-2 rounded-lg bg-slate-100 shadow-md transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300 hover:cursor-pointer">
             <div className="flex flex-row items-center">
                 <img src={getRandomColor()} height={10} width={10} className="mr-3"></img>
                 <img src={nft.image} height={50} width={50}></img>
                 <div className="flex flex-col ml-5" >
-                    <p className="font-semibold w-4/5">{nft.name}</p>
-                    <p className="font-semibold text-sm text-slate-400 ">{nft.dollarValue}</p>
+                    <p className="font-semibold w-5/5">{nft.name}</p>
                 </div>
             </div>
             <div className="flex flex-row">
@@ -25,7 +28,8 @@ function ForSaleNftCard({ url, idx, nft }) {
                 <img src="/rightchevron.svg" width={15} height={15} />
             </div>
         </div>
+        </NavLink>
     )
 }
 
-export default ForSaleNftCard
+export default TrendingNftCard

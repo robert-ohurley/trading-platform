@@ -15,12 +15,21 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { UserContextProvider } from '../src/contexts/userContextProvider.jsx'
+import { TransactionsContextProvider } from './contexts/transactionsContextProvider.jsx';
+import { SnackbarContextProvider } from './contexts/SnackbarContextProvider.jsx';
+import { FavoritesContextProvider } from './contexts/FavoritesContextProvider.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <UserContextProvider>
-        <App />
+        <TransactionsContextProvider>
+          <SnackbarContextProvider>
+            <FavoritesContextProvider>
+              <App />
+            </FavoritesContextProvider>
+          </SnackbarContextProvider>
+        </TransactionsContextProvider>
       </UserContextProvider>
     </BrowserRouter>
   </React.StrictMode>

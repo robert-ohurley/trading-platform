@@ -46,33 +46,39 @@ export default function TransactionModal({ transaction, viewTransaction, setView
         <DialogContent dividers className='flex flex-col items-center justify-center mb-5'>
           <img src={transaction.image} />
           <Typography gutterBottom sx={{ fontSize: "1.5rem", marginTop: "1rem" }} >
-            0.000658968018810737 ETH ($1.08)
+           { transaction.ethValue} eth 
           </Typography>
 
           <div className="flex justify-center w-full">
             <p className="mr-2 " >Timestamp: </p>
-            <p>11 secs ago (Sep-01-2023 08:34:23 PM +UTC)</p>
+            <p>{transaction.timeStamp}</p>
           </div>
 
           <div className="flex justify-start w-full mt-5 ">
             <p className="mr-2 font-bold"  >From: </p>
-            <p>0699999cf1046e68e36E1aA2E0E07105eDDD1f08E</p>
+            <p>{transaction.from}</p> 
           </div>
 
           <div className="flex justify-start w-full">
             <p className="mr-2 font-bold" >To: </p>
-            <p>{transaction.wallet}</p>
+            <p>{transaction.to}</p>
           </div>
           <div className="flex justify-start flex-col w-full mt-5">
             <p className="mr-2 font-bold" >Transaction Hash: </p>
-            <p>0x59489f6221dc4db7e8fd9c155c797dddcbc34ed1fa4e746eccf4569f7dbf142f </p>
+            <p>{transaction.hash}</p>
           </div>
           <div className="flex justify-start items-center w-full mt-5 ">
             <p className="mr-2 font-bold" >Status: </p>
-            <button className="border p-1.5 bg-button-light-green rounded-lg flex">
-              <TiTickOutline className="mt-0.5 mr-1" />
-              <p className="text-button-green font-medium">Success</p>
-            </button>
+            {transaction.status == true ? 
+              <button className="border p-1.5 bg-button-light-green rounded-lg flex">
+                <TiTickOutline className="mt-0.5 mr-1" />
+                <p className="text-button-green font-medium">Success</p>
+              </button> :
+              <button className="border p-1.5 bg-button-red rounded-lg flex">
+                <TiTickOutline className="mt-0.5 mr-1" />
+                <p className="text-button-black font-medium">Failure</p>
+              </button>
+          }
           </div>
         </DialogContent>
       </BootstrapDialog>

@@ -38,6 +38,7 @@ export async function requestSellersWallet() {
 		console.error(error);
 	}
 }
+
 export async function requestUsersBalance() {
 	const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
 	web3.eth.Contract.handleRevert = true;
@@ -46,9 +47,10 @@ export async function requestUsersBalance() {
 		const providersAccounts = await web3.eth.getAccounts();
 		const defaultAccount = providersAccounts[0];
 		const weiBalance = await web3.eth.getBalance(defaultAccount)
+        // If the value was never set, it will return the default value.
 		const ethBalance = web3.utils.fromWei(weiBalance)
 		return ethBalance;
 	} catch (error) {
 		console.error(error);
 	}
-}   
+}
