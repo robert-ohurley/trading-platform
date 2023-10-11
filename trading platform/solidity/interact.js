@@ -1,5 +1,4 @@
 import fs from 'fs';
-import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import Web3 from 'web3';
 import path from 'path'
@@ -36,12 +35,12 @@ let fromAddress = '0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7';
 let toAddress = '0x88126883a7c3dd9685e50EE8E02c776BB79a0a4F';
 
 async function addTradeToBlockchain(nftName, from, to, ethValue, timeStamp, image, transactionHash) {
-  const providersAccounts = await web3.eth.getAccounts();
-  const defaultAccount = providersAccounts[0];
+  // const providersAccounts = await web3.eth.getAccounts();
+  // const defaultAccount = providersAccounts[0];
 	
   try {
     const receipt = await MyContract.methods.addTrade(nftName, from, to, ethValue, timeStamp, image, transactionHash).send({
-      from: defaultAccount,
+      from: from,
       gas: 6721975,
       gasPrice: 20000000000,
     });
@@ -61,7 +60,7 @@ async function getTradesFromBlockchain() {
   }
 }
 
-addTradeToBlockchain("Digital Pi", "0x88126883a7c3dd9685e50EE8E02c776BB79a0a4F", "0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7", "0.15", new Date().toLocaleString(), '/nft1', '0x8a7032dc80d8104fa0a46b67db96c27966e59e80d930f4babc6a9a295d19ab8d');
+// addTradeToBlockchain("Digital Pi", "0x88126883a7c3dd9685e50EE8E02c776BB79a0a4F", "0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7", "0.15", new Date().toLocaleString(), '/nft1', '0x8a7032dc80d8104fa0a46b67db96c27966e59e80d930f4babc6a9a295d19ab8d');
 
 export { addTradeToBlockchain, getTradesFromBlockchain }
 

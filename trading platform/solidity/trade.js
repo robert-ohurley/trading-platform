@@ -1,7 +1,7 @@
 const PRIVATE_KEY = '0x0ce62120e6588ceb45d4b3ee9b551a991d7bde69718b726746bb6b35b0c6db83'; 
 import Web3 from 'web3';
 
-export default async function tradeNft(toAddress, ethValue, nftName, image,) {
+export default async function tradeEth(toAddress, ethValue, nftName, image,) {
 	const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
 	web3.eth.Contract.handleRevert = true;
 
@@ -38,7 +38,18 @@ export async function requestSellersWallet() {
 		console.error(error);
 	}
 }
+export async function requestBuyersWallet() {
+	const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
+	web3.eth.Contract.handleRevert = true;
 
+	try {
+		const providersAccounts = await web3.eth.getAccounts();
+		const defaultAccount = providersAccounts[0];
+		return defaultAccount
+	} catch (error) {
+		console.error(error);
+	}
+}
 export async function requestUsersBalance() {
 	const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
 	web3.eth.Contract.handleRevert = true;
