@@ -36,6 +36,9 @@ let fromAddress = '0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7';
 let toAddress = '0x88126883a7c3dd9685e50EE8E02c776BB79a0a4F';
 
 async function addTradeToBlockchain(nftName, from, to, ethValue, timeStamp, image, transactionHash) {
+  const providersAccounts = await web3.eth.getAccounts();
+  const defaultAccount = providersAccounts[0];
+	
   try {
     const receipt = await MyContract.methods.addTrade(nftName, from, to, ethValue, timeStamp, image, transactionHash).send({
       from: defaultAccount,
