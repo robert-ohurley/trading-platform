@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 
-const CONTRACT_ADDRESS = '0xd618CEcE8421A9E0AF0C09E00489B943B6699880'
+const CONTRACT_ADDRESS = '0xDfce14630B1E52CbBF830216A117c35a4474f5B9'
 
 // Set up a connection to the Ethereum network
 const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
@@ -35,7 +35,7 @@ async function getTradesFromBlockchain() {
     console.error(error);
   }
 }
-
+addTradeToBlockchain('', '0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7', '0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7', 0.11, new Date().toLocaleString(), '/img2', 'sdfafafsdfsafaffsdfsf').then(res => console.log('res', res))
 export { addTradeToBlockchain, getTradesFromBlockchain }
 
 

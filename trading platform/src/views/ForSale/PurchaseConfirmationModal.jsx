@@ -93,8 +93,11 @@ export default function PurchaseConfirmationModal({ purchaseStage, setPurchaseSt
 
 
         //all goes well, indicate a successful transaction.
-        if (error != undefined) {
+        if (error == undefined) {
             addAlert({severity: 'success', message: `Successfully purcased ${nft.Name} for ${nft.Price} eth.`})
+        } else {
+            addAlert({severity: 'success', message: `Transaction done but with error somewhere: ${error}`})
+            console.log('error', error)
         }
     }
     

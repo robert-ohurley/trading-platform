@@ -1,4 +1,4 @@
-const PRIVATE_KEY = '0x0ce62120e6588ceb45d4b3ee9b551a991d7bde69718b726746bb6b35b0c6db83'; 
+const PRIVATE_KEY = '0x445169be36a4e284ce02b8aaf738e9d7b373c82d1a6b408eb895e08281078f34'; 
 import Web3 from 'web3';
 
 export default async function tradeEth(toAddress, ethValue, nftName, image,) {
