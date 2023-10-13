@@ -1,3 +1,4 @@
+/*
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import Web3 from 'web3';
@@ -69,4 +70,4 @@ export { addTradeToBlockchain, getTradesFromBlockchain }
 
 
 
-
+*/
