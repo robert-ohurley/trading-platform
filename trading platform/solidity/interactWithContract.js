@@ -12,6 +12,8 @@ const MyContract = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
 
 
 async function addTradeToBlockchain(nftName, from, to, ethValue, timeStamp, image, transactionHash) {
+
+
   try {
     const receipt = await MyContract.methods.addTrade(nftName, from, to, ethValue, timeStamp, image, transactionHash).send({
       from: from,
