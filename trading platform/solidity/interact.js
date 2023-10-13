@@ -30,9 +30,12 @@ const bytecode = fs.readFileSync(bytecodePath, 'utf8');
 import abi from './TradeHistory.json' assert { type: "json"}
 const MyContract = new web3.eth.Contract(abi, deployedAddress);
 
-let privateKey = '0x0ce62120e6588ceb45d4b3ee9b551a991d7bde69718b726746bb6b35b0c6db83'
+let privateKey= '0x0ce62120e6588ceb45d4b3ee9b551a991d7bde69718b726746bb6b35b0c6db83'
 let fromAddress = '0x154B0A2e458Cb37e93622798d04Bb3B38088BAD7';
 let toAddress = '0x88126883a7c3dd9685e50EE8E02c776BB79a0a4F';
+
+
+
 
 async function addTradeToBlockchain(nftName, from, to, ethValue, timeStamp, image, transactionHash) {
   // const providersAccounts = await web3.eth.getAccounts();

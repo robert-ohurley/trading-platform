@@ -1,10 +1,17 @@
-
-
-// SPDX-License-Identifier: MIT
 // Tells the Solidity compiler to compile only from v0.8.13 to v0.9.0
 pragma solidity ^0.8.0;
 
 contract TradeHistory {
+    // declare two state variables
+    // uint256 favoriteNumber;
+    // bool favoriteBool;
+
+    // A new struct type named People is defined with two properties
+    // struct People {
+    //     uint256 favoriteNumber;
+    //     string name;
+    // }
+
     enum Status {
         Pending,
         Completed,
@@ -14,60 +21,69 @@ contract TradeHistory {
     }
 
     struct Trade {
-        bytes32 nftName;
+        string nftName;
         address from;
         address to;
-        bytes32 ethValue;
+        string ethValue;
         Status transactionStatus;
-        bytes32 timeStamp;
-        bytes32 image;
-        bytes32 transactionHash;
+        string timeStamp;
+        string image;
+        string transactionHash;
     }
 
-    //storage -- state variables are stored on blockchain
     Trade[] public trades;
-    uint myNum = 69;
-	mapping (Status => bytes32) public StatusString;
-    uint[] nums = [1,3,4,5];
 
-    //mapping of userIds to their wallet addresses
-	mapping (uint => address[]) userAddresses;
-
-	constructor() {
-	}
-
-    function getUserAddresses(uint userId) public view returns (address[] memory) {
-        // Mapping always returns a value.
-        // If the value was never set, it will return the default value.
-        return userAddresses[userId];
+    function addTrade(
+        string memory nftName,
+        address from,
+        address to,
+        string memory ethValue,
+        string memory timeStamp,
+        string memory image,
+        string memory transactionHash
+    ) public {
+        //     people.push(People({favoriteNumber: _favoriteNumber, name: _name}));
+        trades.push(
+            Trade({
+                nftName: nftName,
+                from: from,
+                to: to,
+                ethValue: ethValue,
+                timeStamp: timeStamp,
+                image: image,
+                transactionHash: transactionHash,
+                transactionStatus: Status.Pending
+            })
+        );
     }
 
-
-    function addUserAddresses(address addr, uint userId) public {
-        // push new user address to array of their available wallets. 
-            userAddresses[userId].push(addr);
+    function getTrades() public view returns (Trade[] memory) {
+        return trades;
     }
-    //uint256 for ethlue and timestamp
+    // A state variable person of type People (struct) is declared and initialized
+    // People public person = People({favoriteNumber: 2, name: "Arthur"});
 
-    //creates a trade struct and performs eth transaction. If successfull new trade struct status is set to complete and is pushed to array of trades;
-	function addTrade(bytes32 nftName, address from, address to, bytes32 ethValue, bytes32 timeStamp, bytes32 image, bytes32 transactionHash) public {
-        //Trade memory currentTrade = createTrade({ nftName : nftName, from : from, to : to, ethValue : ethValue, timeStamp:timeStamp, image:image, transactionHash:transactionHash });
-        Trade memory newTrade = Trade(nftName, from, to, ethValue, Status.Pending, timeStamp, image, transactionHash);
+    // A dynamic array of People structs is declared as a state variable
+    // People[] public people;
 
-        trades.push(newTrade);
-	}
-	function getNums() public pure returns (uint){
-		return 69;	
-	}
-	function getTrades() public view returns (Trade[] memory){
-		return trades;	
-	}
+    //A mapping named nameToFavoriteNumber is declared to map string names to uint256 numbers
+    // mapping(string => uint256) public nameToFavoriteNumber;
 
-    function updateTransactionStatus(bytes32 _transactionHash) public {
-       for (uint i = 0; i<trades.length; i++) {
-            if (keccak256(abi.encodePacked(trades[i].transactionHash)) == keccak256(abi.encodePacked(_transactionHash))) {
-                trades[i].transactionStatus = Status.Completed;
-            }
-        }
-    } 
+    // function store(uint256 _favoriteNumber) public returns (uint256) {
+    //     favoriteNumber = _favoriteNumber;
+    //     return favoriteNumber;
+    // }
+
+    // function retrieve() public view returns (uint256) {
+    //     return favoriteNumber;
+    // }
+
+    // function addPerson(string memory _name, uint256 _favoriteNumber) public {
+    //     people.push(People({favoriteNumber: _favoriteNumber, name: _name}));
+    //     nameToFavoriteNumber[_name] = _favoriteNumber;
+    // }
+
+    // function getPeople() public view returns (People[] memory) {
+    //     return people;
+    // }
 }

@@ -1,34 +1,10 @@
 [
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
 		"inputs": [
 			{
-				"internalType": "enum TradeHistory.Status",
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"name": "StatusString",
-		"outputs": [
-			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "nftName",
-				"type": "bytes32"
+				"type": "string"
 			},
 			{
 				"internalType": "address",
@@ -41,60 +17,29 @@
 				"type": "address"
 			},
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "ethValue",
-				"type": "bytes32"
+				"type": "string"
 			},
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "timeStamp",
-				"type": "bytes32"
+				"type": "string"
 			},
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "image",
-				"type": "bytes32"
+				"type": "string"
 			},
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "transactionHash",
-				"type": "bytes32"
+				"type": "string"
 			}
 		],
 		"name": "addTrade",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "userId",
-				"type": "uint256"
-			}
-		],
-		"name": "addUserAddresses",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getNums",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "pure",
 		"type": "function"
 	},
 	{
@@ -104,9 +49,9 @@
 			{
 				"components": [
 					{
-						"internalType": "bytes32",
+						"internalType": "string",
 						"name": "nftName",
-						"type": "bytes32"
+						"type": "string"
 					},
 					{
 						"internalType": "address",
@@ -119,9 +64,9 @@
 						"type": "address"
 					},
 					{
-						"internalType": "bytes32",
+						"internalType": "string",
 						"name": "ethValue",
-						"type": "bytes32"
+						"type": "string"
 					},
 					{
 						"internalType": "enum TradeHistory.Status",
@@ -129,43 +74,24 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "bytes32",
+						"internalType": "string",
 						"name": "timeStamp",
-						"type": "bytes32"
+						"type": "string"
 					},
 					{
-						"internalType": "bytes32",
+						"internalType": "string",
 						"name": "image",
-						"type": "bytes32"
+						"type": "string"
 					},
 					{
-						"internalType": "bytes32",
+						"internalType": "string",
 						"name": "transactionHash",
-						"type": "bytes32"
+						"type": "string"
 					}
 				],
 				"internalType": "struct TradeHistory.Trade[]",
 				"name": "",
 				"type": "tuple[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "userId",
-				"type": "uint256"
-			}
-		],
-		"name": "getUserAddresses",
-		"outputs": [
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
 			}
 		],
 		"stateMutability": "view",
@@ -182,9 +108,9 @@
 		"name": "trades",
 		"outputs": [
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "nftName",
-				"type": "bytes32"
+				"type": "string"
 			},
 			{
 				"internalType": "address",
@@ -197,9 +123,9 @@
 				"type": "address"
 			},
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "ethValue",
-				"type": "bytes32"
+				"type": "string"
 			},
 			{
 				"internalType": "enum TradeHistory.Status",
@@ -207,35 +133,22 @@
 				"type": "uint8"
 			},
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "timeStamp",
-				"type": "bytes32"
+				"type": "string"
 			},
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "image",
-				"type": "bytes32"
+				"type": "string"
 			},
 			{
-				"internalType": "bytes32",
+				"internalType": "string",
 				"name": "transactionHash",
-				"type": "bytes32"
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "_transactionHash",
-				"type": "bytes32"
-			}
-		],
-		"name": "updateTransactionStatus",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
