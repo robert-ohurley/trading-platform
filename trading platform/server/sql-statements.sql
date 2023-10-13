@@ -1,4 +1,4 @@
-create database nft if not exists;
+create database nft;
 
 use nft;
 
@@ -13,9 +13,9 @@ CREATE TABLE IF NOT EXISTS `asset` (
     Id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
     Name VARCHAR(80) NOT NULL UNIQUE,
     Description TEXT NOT NULL,
-    Price DECIMAL NOT NULL,
+    Price FLOAT NOT NULL,
     Category VARCHAR(30) NOT NULL,
-    Img VARCHAR(20) NOT NULL,
+    Img VARCHAR(20) NOT NULL
 );
 
  

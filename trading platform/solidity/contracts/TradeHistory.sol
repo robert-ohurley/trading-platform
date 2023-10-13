@@ -45,12 +45,9 @@ contract TradeHistory {
 
     function addUserAddresses(address addr, uint userId) public {
         // push new user address to array of their available wallets. 
-        if (userAddresses[userId].length == 0) {
             userAddresses[userId].push(addr);
-        } else {
-            userAddresses[userId].push(addr);
-        }
     }
+    //uint256 for ethlue and timestamp
 
     //creates a trade struct and performs eth transaction. If successfull new trade struct status is set to complete and is pushed to array of trades;
 	function addTrade(bytes32 nftName, address from, address to, bytes32 ethValue, bytes32 timeStamp, bytes32 image, bytes32 transactionHash) public {
@@ -72,5 +69,5 @@ contract TradeHistory {
                 trades[i].transactionStatus = Status.Completed;
             }
         }
-       } 
-    }
+    } 
+}
