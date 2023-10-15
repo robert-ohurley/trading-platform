@@ -1,4 +1,4 @@
-const PRIVATE_KEY = '0x8105f68810f014b5686867947d136dcb1dd743252a02da081e4ea62e6089b25c'; 
+const PRIVATE_KEY = '0x9df9c277d58daff906ad1a3aa2cb4999d9e8bce2b5dce702634733ee6e9e28c2'; 
 import Web3 from 'web3';
 
 export default async function tradeEth(toAddress, ethValue, nftName, image,) {
@@ -15,6 +15,7 @@ export default async function tradeEth(toAddress, ethValue, nftName, image,) {
 		}, PRIVATE_KEY)
 
 		let receipt = await web3.eth.sendSignedTransaction(signedTransaction.rawTransaction)
+		console.log(receipt)
 		receipt.nftName = nftName;
 		receipt.image = image;
 		receipt.ethValue = ethValue;

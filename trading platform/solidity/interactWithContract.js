@@ -1,10 +1,10 @@
 import Web3 from 'web3';
 
 //Defines the senders address and private key
-const CONTRACT_ADDRESS = '0x417Cf73661971a80A5E25F9f04C6180ee326617C';
-const SENDER_ADDRESS = '0xa97ba9A6F3422a29a7f3Ba0F937223326Cc1e05D';
-const PRIVATE_KEY = '0x8105f68810f014b5686867947d136dcb1dd743252a02da081e4ea62e6089b25c';
-const RECIEVER_ADDRESS = '0x8a879042526e7Ee13daC6118695f03736311c6d8'
+const CONTRACT_ADDRESS = '0x8e60063a7687508747245264BE0Bd22d3fA9f0f6';
+const SENDER_ADDRESS = '0x6B81776aAf39999a3c7ed49014Ccf74D444A179F';
+const PRIVATE_KEY = '0x9df9c277d58daff906ad1a3aa2cb4999d9e8bce2b5dce702634733ee6e9e28c2';
+const RECIEVER_ADDRESS = '0x86B4bFf70e9de71265411875707f2Ee145FF1399'
 // Connect to Ganache 
 const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
 web3.eth.Contract.handleRevert = true;
@@ -32,8 +32,8 @@ async function getNonceAndChainId() {
 
 
 async function addTradeToBlockchain(nftName, from, to, ethValue, image, transactionHash) {
+  console.log(nftName, from, to, ethValue, image, transactionHash)
   const { nonce, chainId } = getNonceAndChainId();
-
   try {
     let storeTransaction = await MyContract.methods.addTrade(nftName, from, to, ethValue, new Date().toLocaleString(), image, transactionHash).send({
       chainId: chainId,
@@ -56,7 +56,8 @@ async function getTradesFromBlockchain() {
 
   } catch (error) {
     console.error(error);
-    return error;
+    // return error;
+    // return ['error']
   }
 }
 
